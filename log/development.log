@@ -1,0 +1,143 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (19.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (14.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (26.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (2.7ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to CreateStatuses (20130301213321)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130301213321')[0m
+  [1m[35m (36.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+
+
+Started GET "/assets/rails.png" for 127.3.180.1 at 2013-03-01 16:35:55 -0500
+Connecting to database specified by database.yml
+Served asset /rails.png - 200 OK (82ms)
+
+
+Started GET "/statuses" for 127.3.180.1 at 2013-03-01 16:36:31 -0500
+Processing by StatusesController#index as HTML
+  [1m[36mStatus Load (0.1ms)[0m  [1mSELECT "statuses".* FROM "statuses" [0m
+  Rendered statuses/index.html.erb within layouts/application (4.4ms)
+Compiled scaffolds.css  (200ms)  (pid 20056)
+Compiled statuses.css  (2ms)  (pid 20056)
+Compiled application.css  (317ms)  (pid 20056)
+Compiled jquery.js  (2ms)  (pid 20056)
+Compiled jquery_ujs.js  (0ms)  (pid 20056)
+Compiled statuses.js  (708ms)  (pid 20056)
+Compiled application.js  (1002ms)  (pid 20056)
+Completed 200 OK in 2287ms (Views: 2076.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.3.180.1 at 2013-03-01 16:36:34 -0500
+Served asset /application.css - 200 OK (79ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.3.180.1 at 2013-03-01 16:36:35 -0500
+Served asset /scaffolds.css - 200 OK (81ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.3.180.1 at 2013-03-01 16:36:35 -0500
+Served asset /statuses.css - 200 OK (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.3.180.1 at 2013-03-01 16:36:35 -0500
+Served asset /jquery_ujs.js - 200 OK (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.3.180.1 at 2013-03-01 16:36:35 -0500
+Served asset /jquery.js - 200 OK (176ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.3.180.1 at 2013-03-01 16:36:35 -0500
+Served asset /statuses.js - 200 OK (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.3.180.1 at 2013-03-01 16:36:35 -0500
+Served asset /application.js - 200 OK (80ms)
+
+
+Started GET "/statuses/new" for 127.3.180.1 at 2013-03-01 16:38:20 -0500
+Processing by StatusesController#new as HTML
+  Rendered statuses/_form.html.erb (87.4ms)
+  Rendered statuses/new.html.erb within layouts/application (100.3ms)
+Completed 200 OK in 116ms (Views: 107.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.3.180.1 at 2013-03-01 16:38:21 -0500
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.3.180.1 at 2013-03-01 16:38:21 -0500
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.3.180.1 at 2013-03-01 16:38:21 -0500
+Served asset /statuses.js - 304 Not Modified (0ms)
+
+
+Started POST "/statuses" for 127.3.180.1 at 2013-03-01 16:38:32 -0500
+Processing by StatusesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ecez2Bo8jkifWRVMS+s5fuGpdYWazhbKbopnZYLmhCw=", "status"=>{"name"=>"Joey", "content"=>"Hello World!"}, "commit"=>"Create Status"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (22.3ms)[0m  [1mINSERT INTO "statuses" ("content", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Hello World!"], ["created_at", Fri, 01 Mar 2013 21:38:32 UTC +00:00], ["name", "Joey"], ["updated_at", Fri, 01 Mar 2013 21:38:32 UTC +00:00]]
+  [1m[35m (11.8ms)[0m  commit transaction
+Redirected to http://project-livec90673b81236.rhcloud.com/statuses/1
+Completed 302 Found in 109ms (ActiveRecord: 34.2ms)
+
+
+Started GET "/statuses/1" for 127.3.180.1 at 2013-03-01 16:38:32 -0500
+Processing by StatusesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStatus Load (0.4ms)[0m  [1mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered statuses/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.3.180.1 at 2013-03-01 16:38:32 -0500
+Served asset /application.css - 200 OK (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.3.180.1 at 2013-03-01 16:38:33 -0500
+Served asset /scaffolds.css - 200 OK (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.3.180.1 at 2013-03-01 16:38:33 -0500
+Served asset /statuses.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.3.180.1 at 2013-03-01 16:38:33 -0500
+Served asset /jquery.js - 200 OK (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.3.180.1 at 2013-03-01 16:38:33 -0500
+Served asset /jquery_ujs.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.3.180.1 at 2013-03-01 16:38:33 -0500
+Served asset /application.js - 200 OK (3ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.3.180.1 at 2013-03-01 16:38:33 -0500
+Served asset /statuses.js - 200 OK (0ms)
+
+
+Started GET "/statuses" for 127.3.180.1 at 2013-03-01 16:39:28 -0500
+Processing by StatusesController#index as HTML
+  [1m[35mStatus Load (0.2ms)[0m  SELECT "statuses".* FROM "statuses" 
+  Rendered statuses/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.3.180.1 at 2013-03-01 16:39:29 -0500
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.css?body=1" for 127.3.180.1 at 2013-03-01 16:39:29 -0500
+Served asset /statuses.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/statuses.js?body=1" for 127.3.180.1 at 2013-03-01 16:39:29 -0500
+Served asset /statuses.js - 304 Not Modified (0ms)
